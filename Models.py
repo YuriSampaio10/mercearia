@@ -8,7 +8,7 @@ class Produtos:
     def __init__(self, nome, preco, categoria: Categoria):
         self.nome = nome
         self.preco = preco
-        self.categproa = categoria
+        self.categoria = categoria
 
 class Estoque:
     def __init__(self, produto: Produtos, quantidade):

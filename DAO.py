@@ -20,8 +20,15 @@ class DaoCategoria:
         cls.categoria = list(map(lambda x: x.replace('\n', ''), cls.categoria))
 
         cat = []
-        for i in cls.categoria
+        for i in cls.categoria:
             cat.append(Categoria(i))
+
         return cat  
     
-DaoCategoria.ler()
+class DaoVenda:
+    # metodo salvar da DAO venda
+    @classmethod
+    def salvar(cls, venda: Venda):
+        with open('venda.txt', 'a') as arq:
+            arq.writelines(venda.itensVendido.nome + '|' + venda.itensVendido.preco + '|' + venda.itensVendido.categoria + '|' + venda.vendedor + '|' + venda.comprador + '|' + str(venda.quantidadeVendida) + '|' + venda.data)
+            arq.writelines('\n')
