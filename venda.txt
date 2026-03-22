@@ -1,0 +1,2 @@
+banana|5|frutas|yuri|gabrielly|3|03/22/26/25/2026 03:25:15
+abacaxi|6|frutas|yuri|gabrielly|2|03/22/26/33/2026 03:33:12
