@@ -1,0 +1,2 @@
+Arroz|20|Alimento|50
+macarrao|8|alimento|3
