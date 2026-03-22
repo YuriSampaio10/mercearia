@@ -103,19 +103,55 @@ class DaoFornecedor:
             # pega tudo que tem no arquivo texto e joga dentro de categoria
             cls.fornecedores = arq.readlines()
 
-        # tira o \n
+        # tira o \n e da split
         cls.fornecedores = list(map(lambda x: x.replace('\n', ''), cls.fornecedores))
         cls.fornecedores = list(map(lambda x: x.split('|'), cls.fornecedores))
 
+        # cria a lista
         forn = []
         for i in cls.fornecedores:
-            # produto = Produtos(i[0], i[1], i[2])
-            # venda = Venda(produto, i[3], i[4], i[5], i[6])
+            # percorre a lista de fornecedor
             forn.append(Fornecedor(i[0], i[1], i[2], i[3]))
 
+        print(cls.fornecedores)
         return forn
     
 # adiciona o produto no estoque(nome, preco, categoria e quantidade) ao estoque e os lê
-x = Fornecedor('SA multimarcas', '858412928', '11958423655', 'alimenticios')
-DaoFornecedor.salvar(x)
-DaoFornecedor.ler()
+# x = Fornecedor('SA multimarcas', '858412928', '11958423655', 'cosmeticos')
+# DaoFornecedor.salvar(x)
+# DaoFornecedor.ler()
+
+
+# DAO PESSOA
+class DaoPessoa:
+    @classmethod
+    def salvar(cls, pessoas: Pessoa):
+        with open('pessoa.txt', 'a') as arq:
+            arq.writelines(pessoas.nome + '|' + pessoas.telefone + '|' + pessoas.cpf + '|' + pessoas.email + '|' + pessoas.endereco)
+            arq.writelines('\n')
+
+    @classmethod
+    def ler(cls):
+        with open('pessoa.txt', 'r') as arq:
+            # pega tudo que tem no arquivo texto e joga dentro de categoria
+            cls.clientes = arq.readlines()
+
+         # tira o \n e da split
+        cls.clientes = list(map(lambda x: x.replace('\n', ''), cls.clientes))
+        cls.clientes = list(map(lambda x: x.split('|'), cls.clientes))
+
+        # cria a lista
+        clientes = []
+        for i in cls.clientes:
+            # percorre a lista de fornecedor
+            clientes.append(Pessoa(i[0], i[1], i[2], i[3], i[4]))
+
+        print(cls.clientes)
+        return clientes
+    
+# # adiciona o produto no estoque(nome, preco, categoria e quantidade) ao estoque e os lê
+# x = Pessoa('gabrielly', '11956234877', '151958423655', 'gaby@gmail.com', 'rua: fjsofjowi')
+# DaoPessoa.salvar(x)
+# DaoPessoa.ler()
+
+
