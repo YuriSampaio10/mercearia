@@ -136,7 +136,7 @@ class DaoPessoa:
             # pega tudo que tem no arquivo texto e joga dentro de categoria
             cls.clientes = arq.readlines()
 
-         # tira o \n e da split
+        # tira o \n e da split
         cls.clientes = list(map(lambda x: x.replace('\n', ''), cls.clientes))
         cls.clientes = list(map(lambda x: x.split('|'), cls.clientes))
 
@@ -155,3 +155,34 @@ class DaoPessoa:
 # DaoPessoa.ler()
 
 
+# DAO FUNCIONARIO
+class DaoFuncionario:
+    @classmethod
+    def salvar(cls, funcionario: Funcionario):
+        with open('funcionario.txt', 'a') as arq:
+            arq.writelines(funcionario.nome + '|' + funcionario.telefone + '|' + funcionario.cpf + '|' + funcionario.email + '|' + funcionario.endereco + '|' + funcionario.clt)
+            arq.writelines('\n')
+
+    @classmethod
+    def ler(cls):
+        with open('funcionario.txt', 'r') as arq:
+            # pega tudo que tem no arquivo texto e joga dentro de categoria
+            cls.funcionarios = arq.readlines()
+
+        # tira o \n e da split
+        cls.funcionarios = list(map(lambda x: x.replace('\n', ''), cls.funcionarios))
+        cls.funcionarios = list(map(lambda x: x.split('|'), cls.funcionarios))
+
+         # cria a lista
+        funcionarios = []
+        for i in cls.funcionarios:
+            # percorre a lista de fornecedor
+            funcionarios.append(Funcionario(i[0], i[1], i[2], i[3], i[4], i[5]))
+
+        print(cls.funcionarios)
+        return funcionarios
+    
+# adiciona o produto no estoque(nome, preco, categoria e quantidade) ao estoque e os lê
+# x = Funcionario('yuri', '11958080950', '1519245253655', 'yuri@gmail.com', 'rua: 44hgffowi', '48182818')
+# DaoFuncionario.salvar(x)
+# DaoFuncionario.ler()
