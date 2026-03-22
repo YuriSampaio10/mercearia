@@ -45,6 +45,13 @@ class DaoVenda:
         cls.venda = list(map(lambda x: x.replace('\n', ''), cls.venda))
         cls.venda = list(map(lambda x: x.split('|'), cls.venda))
        
-        print(cls.venda)
+        vende = []
+        for i in cls.venda:
+            produto = Produtos(i[0], i[1], i[2])
+            venda = Venda(produto, i[3], i[4], i[5])
+            vende.append(venda)
+        return vende
+    
 
-DaoVenda.ler()
+x = DaoVenda.ler()
+print(x)
