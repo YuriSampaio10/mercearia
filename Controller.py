@@ -11,7 +11,7 @@ class ControllerCategoria:
         x = DaoCategoria.ler()
         # Verifica se a categoria nova já está cadastrada.
         for i in x:
-            if i.categoria == novaCategoria:
+            if i.categoria.lower() == novaCategoria.lower():
                 existe = True
 
         # Se não estiver, salva a categoria no arquivo e avisa que deu certo.
@@ -29,7 +29,7 @@ class ControllerCategoria:
         # Ler todas as categorias
         x = DaoCategoria.ler()
         # Verifica se a categoria que você quer remover existe.
-        cat = list(filter(lambda x: x.categoria == removeCategoria, x))
+        cat = list(filter(lambda x: x.categoria.lower() == removeCategoria.lower(), x))
         
         # Se existir, remove a primeira ocorrência da lista.
         if len(cat) <= 0:
@@ -48,5 +48,5 @@ class ControllerCategoria:
                 arq.writelines('\n')
 
 a = ControllerCategoria()
-# a.removeCategoria('Frios')
-a.cadastraCategoria('Legumes')
+a.removeCategoria('frios')
+# a.cadastraCategoria('FRIOS')
