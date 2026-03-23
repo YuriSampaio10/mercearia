@@ -1,3 +1,4 @@
 vegetais
 verduras
 Legumes
+alimento

@@ -50,8 +50,8 @@ class ControllerCategoria:
                 arq.writelines('\n')
 
 # a = ControllerCategoria()
-# a.removeCategoria('frios')
-# a.cadastraCategoria('FRIOS')
+# # a.removeCategoria('frios')
+# a.cadastraCategoria('alimento')
 
     def alterarCAtegoria(self, categoriaAlterar, categoriaAlterada):
         x = DaoCategoria.ler()
@@ -138,5 +138,38 @@ class ControllerEstoque:
                 arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
                 arq.writelines('\n')
 
+# x = ControllerEstoque()
+# x.removerProduto('maca')
+
+    def alterarProduto(self, nomeAlterar, novoNome, novoPreco, novaCategoria, novaQuantidade):
+        # Lê o estoque e as categorias
+        x = DaoEstoque.ler()
+        y = DaoCategoria.ler()
+        # Verifica se a nova categoria existe
+        h = list(filter(lambda c: c.categoria.lower() == novaCategoria.lower(), y))
+        if len(h) > 0:
+            # Verifica se o produto a ser alterado existe
+            est = list(filter(lambda p: p.produto.nome == nomeAlterar, x))
+            if len(est) > 0:
+                # Verifica se o novo nome já não está em uso
+                est = list(filter(lambda p: p.produto.nome == novoNome, x))
+                if len(est) == 0:
+                    # Substitui o produto antigo pelo novo na lista
+                    x = list(map(lambda item: Estoque(Produtos(novoNome, novoPreco, novaCategoria), novaQuantidade) if item.produto.nome == nomeAlterar else item, x))
+                    print('Produto alterado com sucesso!')
+                else:
+                    print('Produto ja cadastrado')
+            else:
+                print('O produto que deseja alterar não existe')
+        else:
+            print('A categoria informada não existe')
+
+        with open('txt/estoque.txt', 'w') as arq:
+            for i in x:
+                arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
+                arq.writelines('\n')
+
 x = ControllerEstoque()
-x.removerProduto('maca')
+x.alterarProduto('Arroz', 'Arroz Integral', '25', 'Alimento', '30')
+
+
