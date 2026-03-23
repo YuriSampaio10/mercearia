@@ -75,3 +75,15 @@ class ControllerCategoria:
 
 # a = ControllerCategoria()
 # a.alterarCAtegoria('frutas', 'vegetais')
+
+    def mostrarCategoria(self):
+        categorias = DaoCategoria.ler()
+        if len(categorias) == 0:
+            print('CAtegoria vazia')
+        else:
+            for i in categorias:
+                print(f'Categoria: {i.categoria}')
+
+# x = ControllerCategoria()
+# x.mostrarCategoria()
+                
