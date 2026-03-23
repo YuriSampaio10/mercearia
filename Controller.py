@@ -239,7 +239,7 @@ class ControllerVenda:
             print(f'Venda realizada com sucesso! Valor total: R${valorCompra}')
 # # VENDA
 # a = ControllerVenda()
-# a.cadastrarVenda('abacate', 'alice', 'gabrielly', 10)
+# a.cadastrarVenda('Lixia', 'yuri', 'gabrielly', 2)
 
 # x = ControllerEstoque()
 # x.cadastrarProduto('lixia', '6', 'alimento', '50')

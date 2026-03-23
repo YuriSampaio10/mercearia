@@ -31,7 +31,7 @@ class DaoVenda:
     @classmethod
     def salvar(cls, venda: Venda):
         with open('txt/venda.txt', 'a') as arq:
-            arq.writelines(venda.itensVendido.nome + '|' + venda.itensVendido.preco + '|' + venda.itensVendido.categoria + '|' + venda.vendedor + '|' + venda.comprador + '|' + str(venda.quantidadeVendida) + '|' + venda.data)
+            arq.writelines(venda.itensVendido.nome + ' | ' + venda.itensVendido.preco + ' | ' + venda.itensVendido.categoria + ' | ' + venda.vendedor + ' | ' + venda.comprador + ' | ' + str(venda.quantidadeVendida) + ' | ' + venda.data)
             arq.writelines('\n')
 
 
@@ -58,7 +58,7 @@ class DaoEstoque:
     @classmethod
     def salvar(cls, estoque):
         with open('txt/estoque.txt', 'a') as arq:
-            arq.writelines(estoque.produto.nome + '|' + estoque.produto.preco + '|' + estoque.produto.categoria + '|' + str(estoque.quantidade))
+            arq.writelines(estoque.produto.nome + ' | ' + estoque.produto.preco + ' | ' + estoque.produto.categoria + ' | ' + str(estoque.quantidade))
             arq.writelines('\n')
 
     
@@ -94,7 +94,7 @@ class DaoFornecedor:
     @classmethod
     def salvar(cls, fornecedor: Fornecedor):
         with open('txt/fornecedores.txt', 'a') as arq:
-            arq.writelines(fornecedor.nome + '|' + fornecedor.cnpj + '|' + fornecedor.telefone + '|' + fornecedor.categoria)
+            arq.writelines(fornecedor.nome + ' | ' + fornecedor.cnpj + ' | ' + fornecedor.telefone + ' | ' + fornecedor.categoria)
             arq.writelines('\n')
 
     @classmethod
@@ -127,7 +127,7 @@ class DaoPessoa:
     @classmethod
     def salvar(cls, pessoas: Pessoa):
         with open('txt/pessoa.txt', 'a') as arq:
-            arq.writelines(pessoas.nome + '|' + pessoas.telefone + '|' + pessoas.cpf + '|' + pessoas.email + '|' + pessoas.endereco)
+            arq.writelines(pessoas.nome + ' | ' + pessoas.telefone + ' | ' + pessoas.cpf + ' | ' + pessoas.email + ' | ' + pessoas.endereco)
             arq.writelines('\n')
 
     @classmethod
@@ -160,7 +160,7 @@ class DaoFuncionario:
     @classmethod
     def salvar(cls, funcionario: Funcionario):
         with open('txt/funcionario.txt', 'a') as arq:
-            arq.writelines(funcionario.nome + '|' + funcionario.telefone + '|' + funcionario.cpf + '|' + funcionario.email + '|' + funcionario.endereco + '|' + funcionario.clt)
+            arq.writelines(funcionario.nome + ' | ' + funcionario.telefone + ' | ' + funcionario.cpf + ' | ' + funcionario.email + ' | ' + funcionario.endereco + '|' + funcionario.clt)
             arq.writelines('\n')
 
     @classmethod
