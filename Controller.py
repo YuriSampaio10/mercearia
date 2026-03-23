@@ -169,7 +169,21 @@ class ControllerEstoque:
                 arq.writelines(i.produto.nome + '|' + i.produto.preco + '|' + i.produto.categoria + '|' + str(i.quantidade))
                 arq.writelines('\n')
 
+# x = ControllerEstoque()
+# x.alterarProduto('Arroz', 'Arroz Integral', '25', 'Alimento', '30')
+
+
+    def mostrarEstoque(self):
+        estoque = DaoEstoque.ler()
+        if len(estoque) == 0:
+            print('Estoque vazio')
+        else:
+            for i in estoque:
+                print('==========Produto==========')
+                print(f'Nome: {i.produto.nome}\n'
+                      f'Preço: R${i.produto.preco}\n'
+                      f'Categoria: {i.produto.categoria}\n'
+                      f'Quantidade: {i.quantidade} un')
+                
 x = ControllerEstoque()
-x.alterarProduto('Arroz', 'Arroz Integral', '25', 'Alimento', '30')
-
-
+x.mostrarEstoque()
