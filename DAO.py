@@ -77,7 +77,7 @@ class DaoEstoque:
         if len(cls.estoque) > 0:
             for i in cls.estoque:
                 produto = Produtos(i[0], i[1], i[2])
-                estoque = Estoque(produto, i[3])
+                estoque = Estoque(produto, int(i[3]))
                 est.append(estoque)
         print(cls.estoque)
         return est

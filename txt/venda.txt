@@ -1,2 +1,1 @@
-banana|5|frutas|yuri|gabrielly|3|03/22/26/25/2026 03:25:15
-abacaxi|6|frutas|yuri|gabrielly|2|03/22/26/33/2026 03:33:12
+abacate|6|alimento|yuri|gabrielly|10|03/23/26/10/2026 09:10:45
